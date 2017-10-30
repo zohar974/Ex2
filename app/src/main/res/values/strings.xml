@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Ex2</string>
+    <string name="TVIntro">"This exercise demonstarated the:
+Activity life-cycle callback methods,
+Views referances
+and On-click handler"</string>
 </resources>
