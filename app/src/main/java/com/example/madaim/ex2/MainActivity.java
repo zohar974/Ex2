@@ -8,7 +8,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
-    private int cnt=0;
+    private int cnt;
     public void bottonClicked(View v){
         EditText edName = (EditText) findViewById(R.id.Enter);
             if (edName.getText().length()==0){
@@ -57,5 +57,21 @@ public class MainActivity extends Activity {
     protected void onStop() {
         super.onStop();
         Log.i(MY_TAG, "onStopEvent");
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("cnt",cnt);
+        Log.i(MY_TAG, "onSaveInstanceStateEvent");
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        if (savedInstanceState != null){
+            this.cnt=savedInstanceState.getInt("cnt");
+        }
+        Log.i(MY_TAG, "onRestoreInstanceStateEvent");
     }
 }
